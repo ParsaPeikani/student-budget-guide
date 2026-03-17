@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build Your Budget — Smart Student Budgeting</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Navigation -->
+  <nav class="bg-gray-800 text-white">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between">
+      <a href="index.html" class="text-lg font-bold">Smart Student Budgeting</a>
+      <div class="flex flex-wrap items-center gap-1 text-sm">
+        <a href="index.html" class="px-3 py-1 rounded hover:bg-gray-700">Home</a>
+        <a href="income-vs-expenses.html" class="px-3 py-1 rounded hover:bg-gray-700">Income vs. Expenses</a>
+        <a href="track-spending.html" class="px-3 py-1 rounded hover:bg-gray-700">Track Spending</a>
+        <a href="budgeting-traps.html" class="px-3 py-1 rounded hover:bg-gray-700">Budgeting Traps</a>
+        <a href="fifty-thirty-twenty.html" class="px-3 py-1 rounded hover:bg-gray-700">50/30/20 Rule</a>
+        <a href="build-your-budget.html" class="px-3 py-1 rounded bg-gray-700">Build Your Budget</a>
+        <a href="references.html" class="px-3 py-1 rounded hover:bg-gray-700">References</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="bg-gray-800 text-white py-8">
+    <div class="max-w-4xl mx-auto px-4">
+      <p class="text-gray-400 text-sm font-semibold uppercase mb-1">Module 5</p>
+      <h1 class="text-3xl font-bold mb-2">Build Your Budget</h1>
+      <p class="text-gray-300">Put everything together. Fill in the form below to create a personalized monthly budget.</p>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 py-10 space-y-8">
+
+    <div class="bg-white rounded-lg border border-gray-200 p-6">
+
+      <!-- Income Section -->
+      <div class="mb-8">
+        <h2 class="text-xl font-bold text-gray-800 mb-4">Step 1: Your Monthly Income</h2>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Part-Time Job ($)</label>
+            <input type="number" id="incJob" placeholder="0" min="0" class="budget-input w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500" oninput="calculate()">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Scholarships / Bursaries ($)</label>
+            <input type="number" id="incScholarship" placeholder="0" min="0" class="budget-input w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500" oninput="calculate()">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Family Support ($)</label>
+            <input type="number" id="incFamily" placeholder="0" min="0" class="budget-input w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500" oninput="calculate()">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Student Loans (monthly portion) ($)</label>
+            <input type="number" id="incLoan" placeholder="0" min="0" class="budget-input w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500" oninput="calculate()">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Other Income ($)</label>
+            <input type="number" id="incOther" placeholder="0" min="0" class="budget-input w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500" oninput="calculate()">
+          </div>
+        </div>
+        <div class="bg-green-50 rounded p-3 mt-4 flex justify-between items-center">
+          <span class="font-semibold text-green-800">Total Monthly Income:</span>
+          <span id="totalIncome" class="text-xl font-bold text-green-700">$0.00</span>
+        </div>
+      </div>
+
+      <!-- Needs Section -->
+      <div class="mb-8">
+        <h2 class="text-xl font-bold text-gray-800 mb-4">Step 2: Essential Expenses (Needs)</h2>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Rent / Housing ($)</label>
+            <input type="number" id="needRent" placeholder="0" min="0" class="budget-input w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500" oninput="calculate()">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Groceries ($)</label>
+            <input type="number" id="needGroceries" placeholder="0" min="0" class="budget-input w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500" oninput="calculate()">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Transportation ($)</label>
+            <input type="number" id="needTransport" placeholder="0" min="0" class="budget-input w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500" oninput="calculate()">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Utilities ($)</label>
+            <input type="number" id="needUtilities" placeholder="0" min="0" class="budget-input w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500" oninput="calculate()">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Phone Plan ($)</label>
+            <input type="number" id="needPhone" placeholder="0" min="0" class="budget-input w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500" oninput="calculate()">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Textbooks / Course Materials ($)</label>
+            <input type="number" id="needBooks" placeholder="0" min="0" class="budget-input w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500" oninput="calculate()">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Health / Medications ($)</label>
+            <input type="number" id="needHealth" placeholder="0" min="0" class="budget-input w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500" oninput="calculate()">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Other Essentials ($)</label>
+            <input type="number" id="needOther" placeholder="0" min="0" class="budget-input w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500" oninput="calculate()">
+          </div>
+        </div>
+        <div class="bg-red-50 rounded p-3 mt-4 flex justify-between items-center">
+          <span class="font-semibold text-red-800">Total Needs:</span>
+          <span id="totalNeeds" class="text-xl font-bold text-red-700">$0.00</span>
+        </div>
+      </div>
+
+      <!-- Wants Section -->
+      <div class="mb-8">
+        <h2 class="text-xl font-bold text-gray-800 mb-4">Step 3: Discretionary Expenses (Wants)</h2>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Dining Out / Takeout ($)</label>
+            <input type="number" id="wantDining" placeholder="0" min="0" class="budget-input w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500" oninput="calculate()">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Coffee Shops ($)</label>
+            <input type="number" id="wantCoffee" placeholder="0" min="0" class="budget-input w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500" oninput="calculate()">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Entertainment / Streaming ($)</label>
+            <input type="number" id="wantEntertainment" placeholder="0" min="0" class="budget-input w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500" oninput="calculate()">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Shopping / Clothing ($)</label>
+            <input type="number" id="wantShopping" placeholder="0" min="0" class="budget-input w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500" oninput="calculate()">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Gym / Fitness ($)</label>
+            <input type="number" id="wantGym" placeholder="0" min="0" class="budget-input w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500" oninput="calculate()">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Social / Going Out ($)</label>
+            <input type="number" id="wantSocial" placeholder="0" min="0" class="budget-input w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500" oninput="calculate()">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Subscriptions ($)</label>
+            <input type="number" id="wantSubs" placeholder="0" min="0" class="budget-input w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500" oninput="calculate()">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Other Wants ($)</label>
+            <input type="number" id="wantOther" placeholder="0" min="0" class="budget-input w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500" oninput="calculate()">
+          </div>
+        </div>
+        <div class="bg-blue-50 rounded p-3 mt-4 flex justify-between items-center">
+          <span class="font-semibold text-blue-800">Total Wants:</span>
+          <span id="totalWants" class="text-xl font-bold text-blue-700">$0.00</span>
+        </div>
+      </div>
+
+      <!-- Savings Section -->
+      <div class="mb-8">
+        <h2 class="text-xl font-bold text-gray-800 mb-4">Step 4: Savings &amp; Debt Repayment</h2>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Emergency Fund ($)</label>
+            <input type="number" id="saveEmergency" placeholder="0" min="0" class="budget-input w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500" oninput="calculate()">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Extra Debt Payments ($)</label>
+            <input type="number" id="saveDebt" placeholder="0" min="0" class="budget-input w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500" oninput="calculate()">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Investing / TFSA ($)</label>
+            <input type="number" id="saveInvest" placeholder="0" min="0" class="budget-input w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500" oninput="calculate()">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Goal Savings ($)</label>
+            <input type="number" id="saveGoal" placeholder="0" min="0" class="budget-input w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500" oninput="calculate()">
+          </div>
+        </div>
+        <div class="bg-green-50 rounded p-3 mt-4 flex justify-between items-center">
+          <span class="font-semibold text-green-800">Total Savings:</span>
+          <span id="totalSavings" class="text-xl font-bold text-green-700">$0.00</span>
+        </div>
+      </div>
+
+      <!-- Calculate Button -->
+      <div class="text-center mb-8">
+        <button onclick="calculate()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-3 rounded text-lg">Calculate My Budget</button>
+      </div>
+
+      <!-- Results -->
+      <div id="results" class="hidden">
+        <h2 class="text-xl font-bold text-gray-800 mb-4">Your Budget Summary</h2>
+
+        <!-- Summary Cards -->
+        <div class="grid sm:grid-cols-4 gap-3 mb-6">
+          <div class="bg-gray-50 rounded p-3 text-center">
+            <p class="text-xs text-gray-500 font-semibold">Total Income</p>
+            <p id="revIncome" class="text-lg font-bold text-gray-800">$0.00</p>
+          </div>
+          <div class="bg-red-50 rounded p-3 text-center">
+            <p class="text-xs text-red-600 font-semibold">Total Needs</p>
+            <p id="revNeeds" class="text-lg font-bold text-red-700">$0.00</p>
+          </div>
+          <div class="bg-blue-50 rounded p-3 text-center">
+            <p class="text-xs text-blue-600 font-semibold">Total Wants</p>
+            <p id="revWants" class="text-lg font-bold text-blue-700">$0.00</p>
+          </div>
+          <div class="bg-green-50 rounded p-3 text-center">
+            <p class="text-xs text-green-600 font-semibold">Total Savings</p>
+            <p id="revSavings" class="text-lg font-bold text-green-700">$0.00</p>
+          </div>
+        </div>
+
+        <!-- Balance -->
+        <div id="balanceCard" class="rounded-lg p-4 mb-6 text-center">
+          <p class="text-sm font-semibold mb-1">Remaining After All Expenses &amp; Savings</p>
+          <p id="revBalance" class="text-2xl font-extrabold">$0.00</p>
+          <p id="revBalanceMsg" class="text-sm mt-1"></p>
+        </div>
+
+        <!-- Percentages -->
+        <div id="revPercentages" class="bg-gray-50 rounded-lg p-4 mb-6">
+          <h3 class="font-bold text-gray-800 mb-2 text-sm">Your Allocation vs. 50/30/20 Guideline</h3>
+          <div class="grid sm:grid-cols-3 gap-3 text-sm">
+            <div><span class="text-red-600 font-medium">Needs:</span> <span id="revNeedsPct" class="font-bold">0%</span> <span class="text-gray-400">(target: 50%)</span></div>
+            <div><span class="text-blue-600 font-medium">Wants:</span> <span id="revWantsPct" class="font-bold">0%</span> <span class="text-gray-400">(target: 30%)</span></div>
+            <div><span class="text-green-600 font-medium">Savings:</span> <span id="revSavingsPct" class="font-bold">0%</span> <span class="text-gray-400">(target: 20%)</span></div>
+          </div>
+        </div>
+
+        <!-- Tips -->
+        <div id="revTips" class="space-y-2"></div>
+      </div>
+    </div>
+
+    <!-- Bringing It All Together -->
+    <div class="bg-white rounded-lg border border-gray-200 p-6">
+      <h2 class="text-xl font-bold text-gray-800 mb-3">Bringing It All Together</h2>
+      <p class="text-sm text-gray-700 mb-3">Congratulations — you have built a personalized budget! Here is how what you have learned connects:</p>
+      <ol class="space-y-2 text-sm text-gray-700 list-decimal list-inside">
+        <li><strong>Income vs. Expenses</strong> gave you the framework for understanding your money flow.</li>
+        <li><strong>Tracking</strong> showed you how to monitor daily spending and stay aware.</li>
+        <li><strong>Budgeting Traps</strong> armed you against the psychological pitfalls that derail budgets.</li>
+        <li><strong>The 50/30/20 Rule</strong> gave you a simple ratio to guide your allocation.</li>
+        <li><strong>This budget</strong> is your personalized action plan. Check in every week and adjust as needed.</li>
+      </ol>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-6 mt-8">
+    <div class="max-w-4xl mx-auto px-4 text-center text-sm space-y-2">
+      <p>Smart Student Budgeting — An Open Educational Resource for EDCI 337</p>
+      <p>Licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" class="underline hover:text-white">Creative Commons Attribution 4.0 International (CC BY 4.0)</a></p>
+      <p class="text-gray-500">&copy; 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    function currency(v) {
+      return new Intl.NumberFormat("en-CA", { style: "currency", currency: "CAD", maximumFractionDigits: 2 }).format(Number(v || 0));
+    }
+
+    function val(id) { return Number(document.getElementById(id).value || 0); }
+
+    function calculate() {
+      const income = val('incJob') + val('incScholarship') + val('incFamily') + val('incLoan') + val('incOther');
+      const needs = val('needRent') + val('needGroceries') + val('needTransport') + val('needUtilities') + val('needPhone') + val('needBooks') + val('needHealth') + val('needOther');
+      const wants = val('wantDining') + val('wantCoffee') + val('wantEntertainment') + val('wantShopping') + val('wantGym') + val('wantSocial') + val('wantSubs') + val('wantOther');
+      const savings = val('saveEmergency') + val('saveDebt') + val('saveInvest') + val('saveGoal');
+      const balance = income - needs - wants - savings;
+
+      // Step totals
+      document.getElementById('totalIncome').textContent = currency(income);
+      document.getElementById('totalNeeds').textContent = currency(needs);
+      document.getElementById('totalWants').textContent = currency(wants);
+      document.getElementById('totalSavings').textContent = currency(savings);
+
+      // Show results
+      document.getElementById('results').classList.remove('hidden');
+
+      document.getElementById('revIncome').textContent = currency(income);
+      document.getElementById('revNeeds').textContent = currency(needs);
+      document.getElementById('revWants').textContent = currency(wants);
+      document.getElementById('revSavings').textContent = currency(savings);
+      document.getElementById('revBalance').textContent = currency(balance);
+
+      // Balance card styling
+      const balCard = document.getElementById('balanceCard');
+      const balMsg = document.getElementById('revBalanceMsg');
+      if (balance > 0) {
+        balCard.className = 'rounded-lg p-4 mb-6 text-center bg-green-50 border border-green-200';
+        document.getElementById('revBalance').className = 'text-2xl font-extrabold text-green-700';
+        balMsg.textContent = 'You have money left over. Consider adding it to savings.';
+        balMsg.className = 'text-sm mt-1 text-green-600';
+      } else if (balance === 0) {
+        balCard.className = 'rounded-lg p-4 mb-6 text-center bg-yellow-50 border border-yellow-200';
+        document.getElementById('revBalance').className = 'text-2xl font-extrabold text-yellow-700';
+        balMsg.textContent = 'You are breaking exactly even. No room for surprises.';
+        balMsg.className = 'text-sm mt-1 text-yellow-600';
+      } else {
+        balCard.className = 'rounded-lg p-4 mb-6 text-center bg-red-50 border border-red-200';
+        document.getElementById('revBalance').className = 'text-2xl font-extrabold text-red-700';
+        balMsg.textContent = 'You are over budget by ' + currency(Math.abs(balance)) + '. Reduce expenses or increase income.';
+        balMsg.className = 'text-sm mt-1 text-red-600';
+      }
+
+      // Percentages
+      if (income > 0) {
+        document.getElementById('revNeedsPct').textContent = Math.round(needs / income * 100) + '%';
+        document.getElementById('revWantsPct').textContent = Math.round(wants / income * 100) + '%';
+        document.getElementById('revSavingsPct').textContent = Math.round(savings / income * 100) + '%';
+      }
+
+      // Tips
+      const tips = [];
+      if (income > 0 && savings === 0) {
+        tips.push({ type: 'warning', text: 'You have not allocated anything to savings. Try to save at least 10% of your income.' });
+      }
+      if (income > 0 && savings > 0 && savings / income >= 0.2) {
+        tips.push({ type: 'success', text: 'Excellent! You are saving ' + Math.round(savings / income * 100) + '% of your income.' });
+      }
+      if (income > 0 && needs > income * 0.5) {
+        tips.push({ type: 'info', text: 'Your needs take up ' + Math.round(needs / income * 100) + '% of your income (guideline is 50%). This is common on a student budget.' });
+      }
+      if (balance < 0) {
+        tips.push({ type: 'warning', text: 'Your budget is ' + currency(Math.abs(balance)) + ' over. Start by cutting wants.' });
+      }
+
+      const tipsEl = document.getElementById('revTips');
+      if (tips.length > 0) {
+        tipsEl.innerHTML = '<h3 class="font-bold text-gray-800 mb-2">Tips</h3>' + tips.map(t => {
+          const bg = t.type === 'success' ? 'bg-green-50 border-green-200 text-green-700' : t.type === 'warning' ? 'bg-yellow-50 border-yellow-200 text-yellow-700' : 'bg-blue-50 border-blue-200 text-blue-700';
+          return '<div class="' + bg + ' border rounded p-3 text-sm">' + t.text + '</div>';
+        }).join('');
+      } else {
+        tipsEl.innerHTML = '';
+      }
+    }
+
+    calculate();
+  </script>
+</body>
+</html>

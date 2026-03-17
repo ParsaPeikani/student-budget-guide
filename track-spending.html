@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Track Your Spending — Smart Student Budgeting</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Navigation -->
+  <nav class="bg-gray-800 text-white">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between">
+      <a href="index.html" class="text-lg font-bold">Smart Student Budgeting</a>
+      <div class="flex flex-wrap items-center gap-1 text-sm">
+        <a href="index.html" class="px-3 py-1 rounded hover:bg-gray-700">Home</a>
+        <a href="income-vs-expenses.html" class="px-3 py-1 rounded hover:bg-gray-700">Income vs. Expenses</a>
+        <a href="track-spending.html" class="px-3 py-1 rounded bg-gray-700">Track Spending</a>
+        <a href="budgeting-traps.html" class="px-3 py-1 rounded hover:bg-gray-700">Budgeting Traps</a>
+        <a href="fifty-thirty-twenty.html" class="px-3 py-1 rounded hover:bg-gray-700">50/30/20 Rule</a>
+        <a href="build-your-budget.html" class="px-3 py-1 rounded hover:bg-gray-700">Build Your Budget</a>
+        <a href="references.html" class="px-3 py-1 rounded hover:bg-gray-700">References</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="bg-gray-800 text-white py-8">
+    <div class="max-w-4xl mx-auto px-4">
+      <p class="text-gray-400 text-sm font-semibold uppercase mb-1">Module 2</p>
+      <h1 class="text-3xl font-bold mb-2">Track Your Spending</h1>
+      <p class="text-gray-300">You cannot manage what you do not measure. Start logging your expenses and discover where your money actually goes.</p>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 py-10 space-y-10">
+
+    <!-- Why Track? -->
+    <section>
+      <h2 class="text-2xl font-bold text-gray-800 mb-4">Why Track Your Spending?</h2>
+      <div class="space-y-3 text-gray-700">
+        <p>Most students dramatically underestimate how much they spend. Research shows that people typically guess their spending is <strong>20-40% lower</strong> than it actually is.</p>
+        <p>Tracking every expense — even small ones — is the single most effective habit for gaining financial control. After just one week of tracking, most people find at least one spending pattern they want to change.</p>
+        <p>You do not need a fancy app. A simple log works just as well. The key is <strong>consistency</strong>: record every purchase as it happens.</p>
+      </div>
+
+      <div class="bg-white rounded-lg border border-gray-200 p-4 mt-4">
+        <h3 class="font-bold text-gray-800 mb-2">Benefits of Daily Tracking</h3>
+        <ul class="space-y-1 text-sm text-gray-700">
+          <li>&#10003; <strong>Awareness</strong> — See exactly where money goes</li>
+          <li>&#10003; <strong>Accountability</strong> — Think twice before impulse buys</li>
+          <li>&#10003; <strong>Patterns</strong> — Spot recurring unnecessary costs</li>
+          <li>&#10003; <strong>Control</strong> — Make informed decisions about spending</li>
+          <li>&#10003; <strong>Confidence</strong> — Less anxiety when you know your numbers</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Budget Tracker Tool -->
+    <section>
+      <h2 class="text-2xl font-bold text-gray-800 mb-2">Interactive Budget Tracker</h2>
+      <p class="text-gray-600 mb-4">Enter your monthly income and budget goal, then add your expenses. The tracker will show you category breakdowns and feedback.</p>
+
+      <div class="bg-white rounded-lg border border-gray-200 p-6 space-y-6">
+
+        <!-- Income & Budget inputs -->
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label for="income" class="block text-sm font-semibold text-gray-700 mb-1">Monthly Income ($)</label>
+            <input type="number" id="income" placeholder="e.g. 1200" min="0" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500" oninput="render()">
+          </div>
+          <div>
+            <label for="budget" class="block text-sm font-semibold text-gray-700 mb-1">Monthly Budget Goal ($)</label>
+            <input type="number" id="budget" placeholder="e.g. 1000" min="0" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500" oninput="render()">
+          </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="bg-gray-50 rounded-lg p-4 flex flex-wrap gap-6 items-center justify-between">
+          <div>
+            <p class="text-sm text-gray-500">Budget Remaining</p>
+            <p id="remaining" class="text-2xl font-bold text-green-700">$0.00</p>
+          </div>
+          <p id="spentText" class="text-sm text-gray-500">Spent $0.00 so far</p>
+        </div>
+
+        <!-- Add Expense -->
+        <div>
+          <h3 class="font-bold text-gray-800 mb-2">Add an Expense</h3>
+          <div class="grid sm:grid-cols-4 gap-3">
+            <input type="text" id="title" placeholder="Item name" class="sm:col-span-1 border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:border-blue-500">
+            <input type="number" id="amount" placeholder="Amount" min="0" step="0.01" class="border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:border-blue-500">
+            <select id="category" class="border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:border-blue-500 bg-white">
+              <option>Food</option><option>Transport</option><option>Rent</option><option>Entertainment</option><option>School</option><option>Shopping</option><option>Savings</option><option>Other</option>
+            </select>
+            <button onclick="addExpense()" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded px-4 py-2 text-sm">+ Add</button>
+          </div>
+        </div>
+
+        <!-- Expense List -->
+        <div>
+          <h3 class="font-bold text-gray-800 mb-2">Your Expenses</h3>
+          <div id="expenseList">
+            <div class="text-sm text-gray-500">No expenses added yet.</div>
+          </div>
+        </div>
+
+        <!-- Category Breakdown -->
+        <div>
+          <h3 class="font-bold text-gray-800 mb-2">Category Breakdown</h3>
+          <div id="categoryBars">
+            <div class="text-sm text-gray-500">Add expenses to see category insights.</div>
+          </div>
+        </div>
+
+        <!-- Feedback -->
+        <div>
+          <h3 class="font-bold text-gray-800 mb-2">Feedback</h3>
+          <div id="feedbackList"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reflection -->
+    <section class="bg-white rounded-lg border border-gray-200 p-6">
+      <h2 class="text-xl font-bold text-gray-800 mb-3">Reflect on Your Tracking</h2>
+      <p class="text-sm text-gray-700 mb-3">After adding a few expenses, consider these questions:</p>
+      <ol class="space-y-2 text-sm text-gray-700 list-decimal list-inside">
+        <li>Which category surprised you the most? Were you spending more than you thought?</li>
+        <li>Is there one category where you could realistically cut back by 20% this month?</li>
+        <li>Did you notice any small recurring expenses that add up over time?</li>
+        <li>How does your actual spending compare to what you estimated before tracking?</li>
+      </ol>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-6 mt-8">
+    <div class="max-w-4xl mx-auto px-4 text-center text-sm space-y-2">
+      <p>Smart Student Budgeting — An Open Educational Resource for EDCI 337</p>
+      <p>Licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" class="underline hover:text-white">Creative Commons Attribution 4.0 International (CC BY 4.0)</a></p>
+      <p class="text-gray-500">&copy; 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    // Budget Tracker
+    const categories = ["Food","Transport","Rent","Entertainment","School","Shopping","Savings","Other"];
+    let expenses = [
+      { id: 1, title: "Groceries", amount: 95, category: "Food" },
+      { id: 2, title: "Bus Pass", amount: 55, category: "Transport" },
+      { id: 3, title: "Textbook", amount: 80, category: "School" }
+    ];
+
+    function currency(value) {
+      return new Intl.NumberFormat("en-CA", { style: "currency", currency: "CAD", maximumFractionDigits: 2 }).format(Number(value || 0));
+    }
+
+    function getValues() {
+      return {
+        income: Number(document.getElementById("income").value || 0),
+        budget: Number(document.getElementById("budget").value || 0)
+      };
+    }
+
+    function getCategoryTotals() {
+      const totals = {};
+      categories.forEach(cat => {
+        totals[cat] = expenses.filter(item => item.category === cat).reduce((sum, item) => sum + item.amount, 0);
+      });
+      return totals;
+    }
+
+    function getFeedback(income, budget, expensesList) {
+      const totalSpent = expensesList.reduce((sum, item) => sum + item.amount, 0);
+      const remaining = budget - totalSpent;
+      const byCategory = getCategoryTotals();
+      const tips = [];
+
+      if (income > 0) {
+        const spendRate = totalSpent / income;
+        if (spendRate > 0.9) {
+          tips.push("You have spent more than 90% of your income. Try reducing non-essential spending.");
+        } else if (spendRate < 0.6) {
+          tips.push("Nice job keeping your spending under control. You may have room to grow your savings.");
+        }
+      }
+
+      if (remaining < 0) {
+        tips.push("You are over budget. Focus on cutting entertainment, shopping, or takeout first.");
+      } else if (budget > 0 && remaining <= budget * 0.2) {
+        tips.push("You are close to your budget limit. Plan the rest of the month carefully.");
+      } else if (budget > 0) {
+        tips.push("You still have budget left. Keep tracking to stay consistent.");
+      }
+
+      if (budget > 0 && byCategory["Entertainment"] > budget * 0.2) {
+        tips.push("Entertainment is taking a large share of your budget. Consider setting a weekly cap.");
+      }
+
+      if (budget > 0 && byCategory["Food"] > budget * 0.3) {
+        tips.push("Food spending is quite high. Meal planning or bringing lunch from home may help.");
+      }
+
+      if (byCategory["Savings"] === 0 && income > 0) {
+        tips.push("You have not recorded any savings yet. Even saving 5-10% of income builds a good habit.");
+      } else if (income > 0 && byCategory["Savings"] / income >= 0.1) {
+        tips.push("Great work — you are saving at least 10% of your income.");
+      }
+
+      const topCategory = Object.entries(byCategory).sort((a, b) => b[1] - a[1])[0];
+      if (topCategory && topCategory[1] > 0) {
+        tips.push("Your highest spending category is " + topCategory[0] + " at " + currency(topCategory[1]) + ".");
+      }
+
+      if (tips.length === 0) {
+        tips.push("Enter your monthly income and budget goal above to get personalized feedback.");
+      }
+
+      return tips;
+    }
+
+    function addExpense() {
+      const title = document.getElementById("title").value.trim();
+      const amount = Number(document.getElementById("amount").value);
+      const category = document.getElementById("category").value;
+      if (!title || !amount || amount <= 0) return;
+      expenses.unshift({ id: Date.now(), title, amount, category });
+      document.getElementById("title").value = "";
+      document.getElementById("amount").value = "";
+      document.getElementById("category").value = "Food";
+      render();
+    }
+
+    function deleteExpense(id) {
+      expenses = expenses.filter(item => item.id !== id);
+      render();
+    }
+
+    function render() {
+      const { income, budget } = getValues();
+      const totalSpent = expenses.reduce((sum, item) => sum + item.amount, 0);
+      const remaining = budget - totalSpent;
+
+      document.getElementById("remaining").textContent = currency(remaining);
+      document.getElementById("remaining").className = remaining < 0 ? "text-2xl font-bold text-red-600" : "text-2xl font-bold text-green-700";
+      document.getElementById("spentText").textContent = "Spent " + currency(totalSpent) + " so far";
+
+      // Expense list
+      const expenseList = document.getElementById("expenseList");
+      expenseList.innerHTML = "";
+      if (expenses.length === 0) {
+        expenseList.innerHTML = '<div class="text-sm text-gray-500">No expenses added yet.</div>';
+      } else {
+        expenses.forEach(item => {
+          const div = document.createElement("div");
+          div.className = "flex justify-between items-center border border-gray-200 rounded p-3 mb-2";
+          div.innerHTML = '<div><div class="font-semibold">' + item.title + '</div><div class="text-xs text-gray-500">' + item.category + '</div></div><div class="flex gap-2 items-center"><div class="font-semibold">' + currency(item.amount) + '</div><button onclick="deleteExpense(' + item.id + ')" class="bg-red-500 hover:bg-red-600 text-white text-xs px-3 py-1 rounded">Delete</button></div>';
+          expenseList.appendChild(div);
+        });
+      }
+
+      // Feedback
+      const feedback = getFeedback(income, budget, expenses);
+      const feedbackList = document.getElementById("feedbackList");
+      feedbackList.innerHTML = feedback.map(t => '<div class="bg-blue-50 border border-blue-200 rounded p-3 mb-2 text-sm">' + t + '</div>').join("");
+
+      // Category bars
+      const totals = getCategoryTotals();
+      const sorted = Object.entries(totals).filter(([, v]) => v > 0).sort((a, b) => b[1] - a[1]);
+      const categoryBars = document.getElementById("categoryBars");
+      if (sorted.length === 0) {
+        categoryBars.innerHTML = '<div class="text-sm text-gray-500">Add expenses to see category insights.</div>';
+      } else {
+        categoryBars.innerHTML = sorted.map(([name, total]) => {
+          const percent = totalSpent > 0 ? Math.min((total / totalSpent) * 100, 100) : 0;
+          return '<div class="mb-3"><div class="flex justify-between text-sm mb-1"><span class="font-semibold">' + name + '</span><span>' + currency(total) + '</span></div><div class="h-2 bg-gray-200 rounded-full overflow-hidden"><div class="h-2 bg-blue-600 rounded-full" style="width:' + percent + '%"></div></div></div>';
+        }).join("");
+      }
+    }
+
+    // Enter key
+    document.getElementById('amount').addEventListener('keydown', e => { if (e.key === 'Enter') addExpense(); });
+    document.getElementById('title').addEventListener('keydown', e => { if (e.key === 'Enter') document.getElementById('amount').focus(); });
+
+    // Initial render
+    render();
+  </script>
+</body>
+</html>

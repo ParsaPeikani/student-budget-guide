@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Income vs. Expenses — Smart Student Budgeting</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Navigation -->
+  <nav class="bg-gray-800 text-white">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between">
+      <a href="index.html" class="text-lg font-bold">Smart Student Budgeting</a>
+      <div class="flex flex-wrap items-center gap-1 text-sm">
+        <a href="index.html" class="px-3 py-1 rounded hover:bg-gray-700">Home</a>
+        <a href="income-vs-expenses.html" class="px-3 py-1 rounded bg-gray-700">Income vs. Expenses</a>
+        <a href="track-spending.html" class="px-3 py-1 rounded hover:bg-gray-700">Track Spending</a>
+        <a href="budgeting-traps.html" class="px-3 py-1 rounded hover:bg-gray-700">Budgeting Traps</a>
+        <a href="fifty-thirty-twenty.html" class="px-3 py-1 rounded hover:bg-gray-700">50/30/20 Rule</a>
+        <a href="build-your-budget.html" class="px-3 py-1 rounded hover:bg-gray-700">Build Your Budget</a>
+        <a href="references.html" class="px-3 py-1 rounded hover:bg-gray-700">References</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="bg-gray-800 text-white py-8">
+    <div class="max-w-4xl mx-auto px-4">
+      <p class="text-gray-400 text-sm font-semibold uppercase mb-1">Module 1</p>
+      <h1 class="text-3xl font-bold mb-2">Income vs. Expenses</h1>
+      <p class="text-gray-300">Understand where your money comes from and where it goes — the foundation of every good budget.</p>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 py-10 space-y-10">
+
+    <!-- Understanding Income -->
+    <section>
+      <h2 class="text-2xl font-bold text-gray-800 mb-4">Understanding Your Income</h2>
+      <p class="text-gray-700 mb-4">Income is any money flowing into your hands. As a student, your income might come from several different sources. The first step in budgeting is knowing exactly how much you have to work with each month.</p>
+
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="bg-white rounded-lg border border-gray-200 p-4">
+          <h3 class="font-bold text-gray-900 mb-1">Part-Time Employment</h3>
+          <p class="text-sm text-gray-600">Wages from campus jobs, retail, food service, tutoring, or freelancing.</p>
+          <p class="text-xs text-gray-500 mt-1">Typical range: $400 - $1,200/month</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-4">
+          <h3 class="font-bold text-gray-900 mb-1">Scholarships &amp; Bursaries</h3>
+          <p class="text-sm text-gray-600">Merit-based or need-based awards. Some arrive as a lump sum; others are paid monthly.</p>
+          <p class="text-xs text-gray-500 mt-1">Tip: Divide semester lump sums by 4 months to get a monthly figure</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-4">
+          <h3 class="font-bold text-gray-900 mb-1">Family Support</h3>
+          <p class="text-sm text-gray-600">Regular contributions from parents, guardians, or other family members.</p>
+          <p class="text-xs text-gray-500 mt-1">Tip: Only count reliable, recurring amounts in your budget</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-4">
+          <h3 class="font-bold text-gray-900 mb-1">Student Loans &amp; Grants</h3>
+          <p class="text-sm text-gray-600">Government or institutional loans. Remember: loans must be repaid with interest.</p>
+          <p class="text-xs text-gray-500 mt-1">Important: Only use loan money for essential living costs</p>
+        </div>
+      </div>
+
+      <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mt-4">
+        <p class="text-sm text-yellow-800"><strong>Key Principle:</strong> When calculating your monthly income, use the <em>lowest realistic estimate</em>. If you usually earn $800-$1,000, budget as if you earn $800. It is always better to have money left over than to come up short.</p>
+      </div>
+    </section>
+
+    <!-- Understanding Expenses -->
+    <section>
+      <h2 class="text-2xl font-bold text-gray-800 mb-4">Understanding Your Expenses</h2>
+      <p class="text-gray-700 mb-4">Expenses are everything you spend money on. The key insight is that <strong>not all expenses are created equal</strong>. Some are non-negotiable; others are choices.</p>
+
+      <div class="grid md:grid-cols-2 gap-5 mt-6">
+        <!-- Essential -->
+        <div class="bg-white rounded-lg border border-red-200 overflow-hidden">
+          <div class="bg-red-500 px-5 py-4">
+            <h3 class="text-white font-bold text-lg">Essential Expenses (Needs)</h3>
+            <p class="text-red-100 text-sm">Things you must pay for to live and study</p>
+          </div>
+          <div class="p-5 space-y-3 text-sm">
+            <div class="flex items-start gap-2"><span class="text-red-400 mt-0.5">&#9679;</span><p><strong>Rent &amp; Utilities</strong> — Your room/apartment and power, water, internet</p></div>
+            <div class="flex items-start gap-2"><span class="text-red-400 mt-0.5">&#9679;</span><p><strong>Groceries</strong> — Basic food and household supplies</p></div>
+            <div class="flex items-start gap-2"><span class="text-red-400 mt-0.5">&#9679;</span><p><strong>Transportation</strong> — Bus pass, gas for commuting to campus</p></div>
+            <div class="flex items-start gap-2"><span class="text-red-400 mt-0.5">&#9679;</span><p><strong>Tuition &amp; Textbooks</strong> — Course fees and required materials</p></div>
+            <div class="flex items-start gap-2"><span class="text-red-400 mt-0.5">&#9679;</span><p><strong>Phone Plan</strong> — Basic communication is a necessity</p></div>
+            <div class="flex items-start gap-2"><span class="text-red-400 mt-0.5">&#9679;</span><p><strong>Health &amp; Hygiene</strong> — Medications, toiletries, basic health needs</p></div>
+          </div>
+        </div>
+
+        <!-- Discretionary -->
+        <div class="bg-white rounded-lg border border-blue-200 overflow-hidden">
+          <div class="bg-blue-500 px-5 py-4">
+            <h3 class="text-white font-bold text-lg">Discretionary Expenses (Wants)</h3>
+            <p class="text-blue-100 text-sm">Nice to have but not survival-critical</p>
+          </div>
+          <div class="p-5 space-y-3 text-sm">
+            <div class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&#9679;</span><p><strong>Coffee Shops</strong> — Your daily latte or campus cafe visits</p></div>
+            <div class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&#9679;</span><p><strong>Entertainment</strong> — Streaming, movies, concerts, games</p></div>
+            <div class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&#9679;</span><p><strong>Dining Out</strong> — Restaurants, takeout, delivery apps</p></div>
+            <div class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&#9679;</span><p><strong>Shopping</strong> — Clothes, accessories, gadgets beyond basics</p></div>
+            <div class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&#9679;</span><p><strong>Gym &amp; Hobbies</strong> — Fitness memberships, hobby supplies</p></div>
+            <div class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&#9679;</span><p><strong>Travel &amp; Social</strong> — Weekend trips, nights out with friends</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Video: Basic Financial Concepts -->
+    <section>
+      <div class="bg-white rounded-lg border border-gray-200 p-6">
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">Watch: Basic Financial Concepts</h2>
+        <p class="text-gray-600 text-sm mb-4">Now that you know the basics of income and expenses, watch this quick video to reinforce what you've learned.</p>
+        <a href="https://www.youtube.com/watch?v=A9Xq3FGjpZA" target="_blank" rel="noopener" class="block relative group rounded-lg overflow-hidden">
+          <img src="https://img.youtube.com/vi/A9Xq3FGjpZA/hqdefault.jpg" alt="Explaining Basic Financial Concepts YOU Should Understand" class="w-full rounded-lg">
+          <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center group-hover:bg-opacity-40 transition">
+            <svg class="w-16 h-16 text-white opacity-90" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.64 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24L27 14v20" fill="white"/></svg>
+          </div>
+          <p class="absolute bottom-3 left-3 bg-black bg-opacity-70 text-white text-xs px-2 py-1 rounded">Watch on YouTube ↗</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- The Balance -->
+    <section>
+      <h2 class="text-2xl font-bold text-gray-800 mb-4">The Fundamental Equation</h2>
+      <div class="bg-white rounded-lg border border-gray-200 p-6 text-center">
+        <div class="flex flex-wrap items-center justify-center gap-3 text-lg font-bold mb-4">
+          <span class="bg-green-100 text-green-700 px-4 py-2 rounded">Income</span>
+          <span class="text-gray-400">-</span>
+          <span class="bg-red-100 text-red-700 px-4 py-2 rounded">Expenses</span>
+          <span class="text-gray-400">=</span>
+          <span class="bg-blue-100 text-blue-700 px-4 py-2 rounded">Money Left</span>
+        </div>
+        <div class="grid sm:grid-cols-3 gap-3 text-sm text-gray-600 mt-4">
+          <div class="bg-green-50 rounded p-3">
+            <p class="font-bold text-green-700 mb-1">Positive balance</p>
+            <p>Great! You can save, invest, or treat yourself occasionally.</p>
+          </div>
+          <div class="bg-yellow-50 rounded p-3">
+            <p class="font-bold text-yellow-700 mb-1">Zero balance</p>
+            <p>You are breaking even. No room for surprises.</p>
+          </div>
+          <div class="bg-red-50 rounded p-3">
+            <p class="font-bold text-red-700 mb-1">Negative balance</p>
+            <p>You are spending more than you earn. Time to cut costs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Static Exercise: Table of Examples -->
+    <section>
+      <h2 class="text-2xl font-bold text-gray-800 mb-4">Exercise: Essential or Discretionary?</h2>
+      <p class="text-gray-600 mb-4">Look at the table below. Try to decide for each item whether it is an essential expense (need) or a discretionary expense (want) before checking the answer column.</p>
+
+      <div class="bg-white rounded-lg border border-gray-200 overflow-hidden">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-gray-50 border-b border-gray-200">
+              <th class="text-left py-3 px-4 font-bold text-gray-800">Expense Item</th>
+              <th class="text-left py-3 px-4 font-bold text-gray-800">Amount</th>
+              <th class="text-left py-3 px-4 font-bold text-gray-800">Category</th>
+            </tr>
+          </thead>
+          <tbody class="text-gray-700">
+            <tr class="border-b border-gray-100">
+              <td class="py-3 px-4">Monthly Rent</td>
+              <td class="py-3 px-4">$750</td>
+              <td class="py-3 px-4"><span class="bg-red-100 text-red-700 text-xs font-semibold px-2 py-1 rounded">Essential</span></td>
+            </tr>
+            <tr class="border-b border-gray-100">
+              <td class="py-3 px-4">Netflix Subscription</td>
+              <td class="py-3 px-4">$17</td>
+              <td class="py-3 px-4"><span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-1 rounded">Discretionary</span></td>
+            </tr>
+            <tr class="border-b border-gray-100">
+              <td class="py-3 px-4">Groceries</td>
+              <td class="py-3 px-4">$250</td>
+              <td class="py-3 px-4"><span class="bg-red-100 text-red-700 text-xs font-semibold px-2 py-1 rounded">Essential</span></td>
+            </tr>
+            <tr class="border-b border-gray-100">
+              <td class="py-3 px-4">Coffee Shop Visits</td>
+              <td class="py-3 px-4">$45</td>
+              <td class="py-3 px-4"><span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-1 rounded">Discretionary</span></td>
+            </tr>
+            <tr class="border-b border-gray-100">
+              <td class="py-3 px-4">Bus Pass</td>
+              <td class="py-3 px-4">$55</td>
+              <td class="py-3 px-4"><span class="bg-red-100 text-red-700 text-xs font-semibold px-2 py-1 rounded">Essential</span></td>
+            </tr>
+            <tr class="border-b border-gray-100">
+              <td class="py-3 px-4">New Sneakers</td>
+              <td class="py-3 px-4">$120</td>
+              <td class="py-3 px-4"><span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-1 rounded">Discretionary</span></td>
+            </tr>
+            <tr class="border-b border-gray-100">
+              <td class="py-3 px-4">Textbooks</td>
+              <td class="py-3 px-4">$80</td>
+              <td class="py-3 px-4"><span class="bg-red-100 text-red-700 text-xs font-semibold px-2 py-1 rounded">Essential</span></td>
+            </tr>
+            <tr class="border-b border-gray-100">
+              <td class="py-3 px-4">Concert Tickets</td>
+              <td class="py-3 px-4">$65</td>
+              <td class="py-3 px-4"><span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-1 rounded">Discretionary</span></td>
+            </tr>
+            <tr class="border-b border-gray-100">
+              <td class="py-3 px-4">Phone Plan</td>
+              <td class="py-3 px-4">$40</td>
+              <td class="py-3 px-4"><span class="bg-red-100 text-red-700 text-xs font-semibold px-2 py-1 rounded">Essential</span></td>
+            </tr>
+            <tr class="border-b border-gray-100">
+              <td class="py-3 px-4">Uber Eats Delivery</td>
+              <td class="py-3 px-4">$30</td>
+              <td class="py-3 px-4"><span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-1 rounded">Discretionary</span></td>
+            </tr>
+            <tr class="border-b border-gray-100">
+              <td class="py-3 px-4">Prescription Medication</td>
+              <td class="py-3 px-4">$25</td>
+              <td class="py-3 px-4"><span class="bg-red-100 text-red-700 text-xs font-semibold px-2 py-1 rounded">Essential</span></td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4">Weekend Road Trip</td>
+              <td class="py-3 px-4">$90</td>
+              <td class="py-3 px-4"><span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-1 rounded">Discretionary</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Key Takeaways -->
+    <section class="bg-white rounded-lg border border-gray-200 p-6">
+      <h2 class="text-xl font-bold text-gray-800 mb-3">Key Takeaways</h2>
+      <ul class="space-y-2 text-sm text-gray-700">
+        <li>&#10003; Your income as a student likely comes from multiple sources — add them all up for an accurate monthly total.</li>
+        <li>&#10003; Essential expenses are non-negotiable costs required for survival and study.</li>
+        <li>&#10003; Discretionary expenses are choices — they are the first place to cut when money is tight.</li>
+        <li>&#10003; The goal is Income &gt; Expenses, leaving room for savings and the unexpected.</li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-6 mt-8">
+    <div class="max-w-4xl mx-auto px-4 text-center text-sm space-y-2">
+      <p>Smart Student Budgeting — An Open Educational Resource for EDCI 337</p>
+      <p>Licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" class="underline hover:text-white">Creative Commons Attribution 4.0 International (CC BY 4.0)</a></p>
+      <p class="text-gray-500">&copy; 2026</p>
+    </div>
+  </footer>
+
+</body>
+</html>
